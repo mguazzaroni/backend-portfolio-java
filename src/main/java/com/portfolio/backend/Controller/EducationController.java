@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 
 @RestController
@@ -36,16 +37,16 @@ public class EducationController {
     @PostMapping("/education/new")
     //@PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> Post(@RequestBody EducationDTO model){
-        if(model.getTitle().isBlank()){
+        if(StringUtils.isBlank(model.getTitle())){
             return new ResponseEntity<>(new Response("The title field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getInstitution().isBlank()){
+        if(StringUtils.isBlank(model.getInstitution())){
             return new ResponseEntity<>(new Response("The institution field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getStartDate().isBlank()){
+        if(StringUtils.isBlank(model.getStartDate())){
             return new ResponseEntity<>(new Response("The startDate field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getEndDate().isBlank()){
+        if(StringUtils.isBlank(model.getEndDate())){
             return new ResponseEntity<>(new Response("The endDate field is required"), HttpStatus.BAD_REQUEST);
         }
         try{
@@ -65,16 +66,16 @@ public class EducationController {
     @PutMapping("/education/update/{id}")
     //@PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> Put(@PathVariable Long id, @RequestBody EducationDTO model){
-        if(model.getTitle().isBlank()){
+        if(StringUtils.isBlank(model.getTitle())){
             return new ResponseEntity<>(new Response("The title field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getInstitution().isBlank()){
+        if(StringUtils.isBlank(model.getInstitution())){
             return new ResponseEntity<>(new Response("The institution field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getStartDate().isBlank()){
+        if(StringUtils.isBlank(model.getStartDate())){
             return new ResponseEntity<>(new Response("The startDate field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getEndDate().isBlank()){
+        if(StringUtils.isBlank(model.getEndDate())){
             return new ResponseEntity<>(new Response("The endDate field is required"), HttpStatus.BAD_REQUEST);
         }
         try {

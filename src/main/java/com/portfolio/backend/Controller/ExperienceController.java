@@ -4,6 +4,7 @@ import com.portfolio.backend.DTO.ExperienceDTO;
 import com.portfolio.backend.Entity.Experience;
 import com.portfolio.backend.Interface.IExperienceService;
 import com.portfolio.backend.Response.Response;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,16 +37,16 @@ public class ExperienceController {
     @PostMapping("/experience/new")
    //  @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> Post(@RequestBody ExperienceDTO model){
-        if(model.getCompanyName().isBlank()){
-            return new ResponseEntity<>(new Response("the name field is required"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(model.getCompanyName())){
+            return new ResponseEntity<>(new Response("the company name field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getDescription().isBlank()){
+        if(StringUtils.isBlank(model.getDescription())){
             return new ResponseEntity<>(new Response("the description field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getStartDate().isBlank()){
+        if(StringUtils.isBlank(model.getStartDate())){
             return new ResponseEntity<>(new Response("the startDate field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getEndDate().isBlank()){
+        if(StringUtils.isBlank(model.getEndDate())){
             return new ResponseEntity<>(new Response("the endDate field is required"), HttpStatus.BAD_REQUEST);
         }
         try{
@@ -65,17 +66,17 @@ public class ExperienceController {
     // @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> Put(@PathVariable Long id, @RequestBody ExperienceDTO model){
 
-        if(!_service.existsExperienceById(id)){
-            return new ResponseEntity<>(new Response("The id does not exist"), HttpStatus.NOT_FOUND);
+        if(StringUtils.isBlank(model.getCompanyName())){
+            return new ResponseEntity<>(new Response("the company name field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getDescription().isBlank()){
-            return  new ResponseEntity<>(new Response("The description field is required"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(model.getDescription())){
+            return new ResponseEntity<>(new Response("the description field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getStartDate().isBlank()){
-            return  new ResponseEntity<>(new Response("The start date field is required"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(model.getStartDate())){
+            return new ResponseEntity<>(new Response("the startDate field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getEndDate().isBlank()){
-            return  new ResponseEntity<>(new Response("The end date field is required"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(model.getEndDate())){
+            return new ResponseEntity<>(new Response("the endDate field is required"), HttpStatus.BAD_REQUEST);
         }
 
         try {

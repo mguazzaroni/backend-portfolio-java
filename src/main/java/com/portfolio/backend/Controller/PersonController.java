@@ -4,6 +4,7 @@ import com.portfolio.backend.DTO.PersonDTO;
 import com.portfolio.backend.Entity.Person;
 import com.portfolio.backend.Interface.IPersonService;
 import com.portfolio.backend.Response.Response;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,16 +40,16 @@ public class PersonController {
     @PostMapping("/person/new")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> Post(@RequestBody PersonDTO model){
-        if(model.getName().isBlank()){
+        if(StringUtils.isBlank(model.getName())){
             return new ResponseEntity<>(new Response("The name field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getSurname().isBlank()){
+        if(StringUtils.isBlank(model.getSurname())){
             return new ResponseEntity<>(new Response("The surname field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getDescription().isBlank()){
+        if(StringUtils.isBlank(model.getDescription())){
             return new ResponseEntity<>(new Response("The description field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getProfession().isBlank()){
+        if(StringUtils.isBlank(model.getProfession())){
             return new ResponseEntity<>(new Response("The profession field is required"), HttpStatus.BAD_REQUEST);
         }
         //La imagen de perfil se muestra hardcodeada desde el front, asi que no se valida por ahora en el back
@@ -78,16 +79,16 @@ public class PersonController {
         if(!_service.existsPersonById(id)){
             return new ResponseEntity<>(new Response("The id does not exist"), HttpStatus.NOT_FOUND);
         }
-        if(model.getName().isBlank()){
+        if(StringUtils.isBlank(model.getName())){
             return new ResponseEntity<>(new Response("The name field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getSurname().isBlank()){
+        if(StringUtils.isBlank(model.getSurname())){
             return new ResponseEntity<>(new Response("The surname field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getDescription().isBlank()){
+        if(StringUtils.isBlank(model.getDescription())){
             return new ResponseEntity<>(new Response("The description field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(model.getProfession().isBlank()){
+        if(StringUtils.isBlank(model.getProfession())){
             return new ResponseEntity<>(new Response("The profession field is required"), HttpStatus.BAD_REQUEST);
         }
 
