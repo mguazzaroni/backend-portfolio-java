@@ -12,7 +12,9 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfolio-guazzaroni.web.app/")
+
 public class EducationController {
 
     @Autowired

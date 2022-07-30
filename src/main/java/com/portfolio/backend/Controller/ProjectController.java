@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
+//@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://portfolio-guazzaroni.web.app/")
 
 /*Este controlador no se utiliza ya que los proyectos los muestro
 con un servicio en Angular usando la API de Github */
