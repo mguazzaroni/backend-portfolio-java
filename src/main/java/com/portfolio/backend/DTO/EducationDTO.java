@@ -1,9 +1,7 @@
 package com.portfolio.backend.DTO;
 
-import lombok.Getter;
 import javax.validation.constraints.NotBlank;
 
-@Getter
 public class EducationDTO {
     @NotBlank
     private String Title;
@@ -20,6 +18,40 @@ public class EducationDTO {
         Title = title;
         Institution = institution;
         StartDate = startDate;
+        EndDate = endDate;
+    }
+
+    //Getters
+    public String getTitle() {
+        return Title;
+    }
+
+    public String getInstitution() {
+        return Institution;
+    }
+
+    public String getStartDate() {
+        return StartDate;
+    }
+
+    public String getEndDate() {
+        return EndDate;
+    }
+
+    //Setters
+    public void setTitle(String title) {
+        Title = title;
+    }
+
+    public void setInstitution(String institution) {
+        Institution = institution;
+    }
+
+    public void setStartDate(String startDate) {
+        StartDate = startDate;
+    }
+
+    public void setEndDate(String endDate) {
         EndDate = endDate;
     }
 }

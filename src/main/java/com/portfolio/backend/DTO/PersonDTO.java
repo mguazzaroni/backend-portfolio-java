@@ -1,10 +1,7 @@
 package com.portfolio.backend.DTO;
 
-import lombok.Getter;
-
 import javax.validation.constraints.NotBlank;
 
-@Getter
 public class PersonDTO {
     @NotBlank
     private String Name;
@@ -25,6 +22,50 @@ public class PersonDTO {
         Surname = surname;
         Description = description;
         Profession = profession;
+        Image = image;
+    }
+
+    //Getters
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getSurname() {
+        return Surname;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public String getProfession() {
+        return Profession;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    //Setters
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setSurname(String surname) {
+        Surname = surname;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public void setProfession(String profession) {
+        Profession = profession;
+    }
+
+    public void setImage(String image) {
         Image = image;
     }
 }

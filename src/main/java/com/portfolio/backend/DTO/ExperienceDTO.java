@@ -1,10 +1,7 @@
 package com.portfolio.backend.DTO;
 
-import lombok.Getter;
-
 import javax.validation.constraints.NotBlank;
 
-@Getter
 public class ExperienceDTO {
     @NotBlank
     private String CompanyName;
@@ -22,6 +19,42 @@ public class ExperienceDTO {
         CompanyName = companyName;
         Description = description;
         StartDate = startDate;
+        EndDate = endDate;
+    }
+
+    //Getters
+
+    public String getCompanyName() {
+        return CompanyName;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public String getStartDate() {
+        return StartDate;
+    }
+
+    public String getEndDate() {
+        return EndDate;
+    }
+
+    //Setters
+
+    public void setCompanyName(String companyName) {
+        CompanyName = companyName;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public void setStartDate(String startDate) {
+        StartDate = startDate;
+    }
+
+    public void setEndDate(String endDate) {
         EndDate = endDate;
     }
 }
