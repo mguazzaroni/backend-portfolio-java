@@ -26,6 +26,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @RestController
+@RequestMapping("/auth")
 //@CrossOrigin(origins = "http://localhost:4200")
 @CrossOrigin(origins = "https://portfolio-guazzaroni.web.app")
 
@@ -41,7 +42,7 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
     
-    @PostMapping("/auth/new")
+    @PostMapping("/new")
     public ResponseEntity<?> create(@Valid @RequestBody NewUserDTO newUserDTO, @NotNull BindingResult bindingResult){
         if(bindingResult.hasErrors())
             return new ResponseEntity(new Responses("Invalid fields"),HttpStatus.BAD_REQUEST);
@@ -64,7 +65,7 @@ public class AuthController {
         return new ResponseEntity(new Responses("User saved"),HttpStatus.CREATED);
     }
     
-    @PostMapping("/auth/login")
+    @PostMapping("/login")
     public ResponseEntity<JwtDTO> login(@Valid @RequestBody LoginUserDTO loginUserDTO, BindingResult bindingResult){
         if(bindingResult.hasErrors()) {
             return new ResponseEntity(new Responses("Invalid fields"), HttpStatus.BAD_REQUEST);
