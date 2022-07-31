@@ -47,9 +47,7 @@ public class ExperienceController {
         if(StringUtils.isBlank(model.getStartDate())){
             return new ResponseEntity<>(new Response("the startDate field is required"), HttpStatus.BAD_REQUEST);
         }
-        if(StringUtils.isBlank(model.getEndDate())){
-            return new ResponseEntity<>(new Response("the endDate field is required"), HttpStatus.BAD_REQUEST);
-        }
+        
         try{
             Experience experience = new Experience( model.getCompanyName(),
                                                     model.getDescription(),
